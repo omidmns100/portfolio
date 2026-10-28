@@ -1,25 +1,22 @@
-"use client";
-
-import Link from "next/link";
-import DesktopHome from "@/components/DesktopHome";
-import MobileHome from "@/components/MobileHome";
-
+import Image from "next/image";
+import ContactForm from "@/components/ContactForm";
+import { Asset, background, Destination } from "@/components/HomeAssets";
+import { portfolio, projects, services, brands, steps } from "@/lib/portfolio";
+const nav = [["درباره من", "#about"], ["نمونه‌کارها", "#projects"], ["تخصص‌های من", "#services"], ["تماس با من", "#contact"]];
+const logo = <Image src="/images/لوگو-01.svg" alt="امید منصوری؛ صفحه اصلی" width={46} height={46} priority />;
 export default function Home() {
-  return (
-    <main>
-      <div className="desktop-layout">
-        <nav>
-          <Link href="/">خانه</Link>
-          <Link href="/about">درباره ما</Link>
-          <Link href="/contact">تماس با ما</Link>
-        </nav>
-
-        <DesktopHome />
-      </div>
-
-      <div className="mobile-layout">
-        <MobileHome />
-      </div>
-    </main>
-  );
+  return <><a href="#main" className="skip-link">رفتن به محتوای اصلی</a><main id="main" className="home-page">
+    <section className="hero" id="home" style={background(portfolio.images.hero)}>
+      <header className="site-header"><a className="header-logo" href="#home">{logo}</a><nav className="glass-nav" aria-label="منوی اصلی">{nav.map(([title, href]) => <a key={href} href={href}>{title}</a>)}</nav><a href="#contact" className="button header-cta">مشاوره رایگان</a></header>
+      <div className="hero-body container"><div className="hero-copy"><h1>ساختن هویت‌هایی که در یاد می‌مانند<br />از صفر تا صد برندینگ</h1><p>{portfolio.intro}</p><div className="hero-actions"><a className="button" href="#projects">نمونه‌کارها</a><a className="button button-white" href="#contact">مشاوره رایگان</a></div></div></div>
+    </section>
+    <section className="about section container" id="about" aria-labelledby="about-title"><div><h2 id="about-title">داستان من :</h2><p>{portfolio.intro}</p><p>برای من هر پروژه فرصتیه برای پیدا کردن یک نگاه تازه؛ از اولین ایده تا آخرین جزئیات، کنارت هستم تا تصویری بسازیم که به برندت تعلق داشته باشه.</p><Destination href={portfolio.pages.about} className="button">بیشتر بخوانید</Destination></div><Asset src={portfolio.images.about} label="بنر دربارهٔ من" className="about-art" /></section>
+    <section className="projects section container" id="projects" aria-labelledby="projects-title"><div className="section-heading"><h2 id="projects-title">نمونه‌کارهای من :</h2><p>هر پروژه یک داستان تازه است؛ اینجا بخشی از مسیر طراحی من رو می‌بینی.</p></div><div className="project-grid">{projects.map(p => <Destination key={p.slug} href={p.href} className="project-card" label={`پروژهٔ ${p.title}`}><Asset src={p.image} label={`بنر ${p.title}`} /></Destination>)}</div><div className="section-action"><Destination href={portfolio.pages.projects} className="button">همهٔ نمونه‌کارها</Destination></div></section>
+    <section className="services section container" id="services" aria-labelledby="services-title"><div className="section-heading"><h2 id="services-title">شما به چه خدماتی نیاز دارید؟</h2><p>از شکل‌گیری هویت برند تا حضور در دنیای دیجیتال، همراهت هستم.</p></div><div className="services-grid">{services.map(s => <article key={s.slug} className="service-card"><Asset src={`/images/services/${s.slug}.webp`} label={`بنر ${s.title}`} /><Destination href={s.href} className="button button-white service-cta" label={s.title}>بیشتر بدانید</Destination></article>)}</div></section>
+    <section className="trust section container" aria-labelledby="trust-title"><div className="section-heading"><h2 id="trust-title">برندهایی که به من اعتماد دارند</h2><p>افتخار همراهی در مسیر ساختن و رشد این برندها رو داشتم.</p></div><div className="brand-grid" dir="ltr">{brands.map(b => <Asset key={b} src={`/images/brands/${b}.svg`} label={b} className="brand" />)}</div></section>
+    <section className="process section container" aria-labelledby="process-title"><div className="section-heading"><h2 id="process-title">چطور با هم کار می‌کنیم؟</h2><p>یک مسیر روشن، از اولین گفت‌وگو تا تحویل نهایی.</p></div><div className="process-grid"><ol>{steps.map((s, i) => <li key={s.title}><span className="step-number" aria-hidden="true">0{i + 1}</span><div><h3>{s.title}</h3><p>{s.text}</p></div></li>)}</ol><Asset src={portfolio.images.process} label="بنر فرایند همکاری" className="process-art" /></div></section>
+    <section className="gallery section container" id="gallery" aria-label="گالری موکاپ پروژه‌ها"><div className="gallery-grid">{Array.from({ length: 9 }, (_, i) => <Asset key={i} src={`/images/gallery/${i + 1}.webp`} label={`موکاپ پروژه ${i + 1}`} className={`gallery-item gallery-item-${i + 1}`} />)}</div><div className="section-action"><Destination href={portfolio.pages.gallery} className="button">مشاهدهٔ گالری</Destination></div></section>
+    <section className="contact section container" id="contact" aria-labelledby="contact-title"><Asset src={portfolio.images.contact} label="بنر تماس با من" className="contact-art" /><div className="form-panel" style={background(portfolio.images.form)}><ContactForm /></div></section>
+    <footer className="site-footer container" style={background(portfolio.images.footer)}><div className="footer-content"><a href="#home" className="footer-logo">{logo}</a><p>{portfolio.intro}</p><hr /><nav aria-label="دسترسی سریع"><h3>دسترسی سریع</h3><div className="footer-links">{nav.map(([title, href]) => <a key={href} href={href}>{title}</a>)}<a href="#home">صفحه اصلی</a></div></nav><nav aria-label="خدمات"><h3>خدمات</h3><div className="footer-links">{services.map(s => <a key={s.slug} href="#services">{s.title}</a>)}</div></nav><div className="socials">{Object.entries(portfolio.socials).map(([name, href]) => <Destination key={name} href={href} label={name} className="social-link"><span aria-hidden="true">{({ instagram: "◎", telegram: "➤", linkedin: "in", email: "@" })[name]}</span></Destination>)}</div><hr /><small>تمامی حقوق این وب‌سایت متعلق به {portfolio.name} است.</small></div></footer>
+  </main></>;
 }
