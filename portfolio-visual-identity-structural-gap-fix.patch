@@ -1,0 +1,11 @@
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -255,7 +255,7 @@
+     min-height: 0;
+     align-items: start;
+     margin-top: 105px;
+-    margin-bottom: -30px;
++    margin-bottom: 40px;
+   }
+   .visual-identity-page .visual-hero .archive-copy { align-self: start; padding-top: 0; }
+   .visual-identity-page .visual-hero-art {

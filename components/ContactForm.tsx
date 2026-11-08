@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useState, type FormEvent } from "react";
-import { services } from "@/lib/portfolio";
+import { services } from "../lib/portfolio";
 export default function ContactForm() {
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState({ ok: false, message: "" });

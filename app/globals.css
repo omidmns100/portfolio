@@ -243,3 +243,42 @@
 /* Make the full visual identity service banner clickable. */
 .service-card-link { display: block; position: relative; border-radius: 22px; }
 .service-card-link:focus-visible { outline: 3px solid #135ce8; outline-offset: 4px; }
+
+/* Visual identity hero: use the same two-column geometry and section rhythm as Projects. */
+.visual-identity-page .visual-process-grid h3 { white-space: pre-line; }
+.visual-identity-page .visual-details { align-items: start; }
+@media (min-width: 701px) {
+  .visual-identity-page .visual-hero {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    min-height: 0;
+    align-items: start;
+    margin-top: 105px;
+    margin-bottom: -155px;
+  }
+  .visual-identity-page .visual-hero .archive-copy { align-self: start; padding-top: 0; }
+  .visual-identity-page .visual-hero-art {
+    width: 100%;
+    aspect-ratio: 1.30;
+    min-height: 0;
+    margin-top: 0;
+    overflow: visible;
+    align-self: start;
+  }
+  /* The PNG contains transparent padding; scale its actual subject, not the grid cell. */
+  .visual-identity-page .visual-hero-art img {
+    object-fit: contain;
+    object-position: center top;
+    transform: translateY(-125px) scale(1.35);
+    transform-origin: center top;
+  }
+  .visual-identity-page .visual-details { margin-top: 12px; }
+}
+@media (min-width: 701px) and (max-width: 1000px) {
+  .visual-identity-page .visual-hero-art img { transform: translateY(-90px) scale(1.25); }
+}
+@media (max-width: 700px) {
+  .visual-identity-page .visual-hero-art { margin-top: 0; aspect-ratio: 1 / 1; }
+  .visual-identity-page .visual-hero-art img { transform: none; }
+}

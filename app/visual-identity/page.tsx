@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ProjectsHeader, ProjectsFooter } from "@/components/ProjectsChrome";
+import { ProjectsHeader, ProjectsFooter } from "../../components/ProjectsChrome";
 
 export const metadata: Metadata = { title: "طراحی هویت بصری | امید منصوری", description: "خدمات طراحی هویت بصری و مراحل خلق هویت برند" };
 const topics = [
@@ -10,11 +10,11 @@ const topics = [
   { title: "من برای شما چه کاری انجام میدهم", body: "از شناخت برند و بررسی مخاطبان شروع می‌کنیم؛ سپس لوگو، رنگ‌ها، تایپوگرافی و اجزای هویت را طراحی می‌کنم و در نهایت راهنمای استفاده از آن‌ها را آماده می‌کنم." },
 ];
 const stages = [
-  { number: "مرحله ۱", title: "شناخت برند و کشف نیازها", icon: "?" },
-  { number: "مرحله ۲", title: "تحقیق و تدوین استراتژی بصری", icon: "⌕" },
-  { number: "مرحله ۳", title: "ایده‌پردازی و طراحی کانسپت", icon: "♧" },
-  { number: "مرحله ۴", title: "توسعه و تکمیل هویت بصری", icon: "✒" },
-  { number: "مرحله ۵", title: "تدوین راهنمای برند و تحویل نهایی", icon: "⚑" },
+  { number: "مرحله ۱", title: "شناخت برند و\nکشف نیازها", icon: "?" },
+  { number: "مرحله ۲", title: "تحقیق و تدوین\nاستراتژی بصری", icon: "⌕" },
+  { number: "مرحله ۳", title: "ایده‌پردازی و\nطراحی کانسپت", icon: "♧" },
+  { number: "مرحله ۴", title: "توسعه و تکمیل\nهویت بصری", icon: "✒" },
+  { number: "مرحله ۵", title: "تدوین راهنمای\nبرند و تحویل نهایی", icon: "⚑" },
 ];
 export default function VisualIdentityPage() {
   return <main className="home-page portfolio-archive visual-identity-page" id="main">

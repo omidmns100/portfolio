@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import ContactForm from "@/components/ContactForm";
-import { ProjectsHeader, ProjectsFooter } from "@/components/ProjectsChrome";
-import { background } from "@/components/HomeAssets";
-import { portfolio } from "@/lib/portfolio";
+import ContactForm from "../../components/ContactForm";
+import { ProjectsHeader, ProjectsFooter } from "../../components/ProjectsChrome";
+import { background } from "../../components/HomeAssets";
+import { portfolio } from "../../lib/portfolio";
 
 export const metadata: Metadata = {
   title: "تماس با من | امید منصوری",

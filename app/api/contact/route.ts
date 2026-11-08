@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { createHash } from "node:crypto";
-import { services } from "@/lib/portfolio";
+import { services } from "../../../lib/portfolio";
 export const runtime = "nodejs";
 const attempts = new Map<string, { count: number; until: number }>();
 const reply = (message: string, status = 200) => Response.json({ message }, { status });

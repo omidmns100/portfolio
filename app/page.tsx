@@ -1,7 +1,7 @@
 import Image from "next/image";
-import ContactForm from "@/components/ContactForm";
-import { Asset, background, Destination } from "@/components/HomeAssets";
-import { portfolio, projects, services, brands, steps, gallery } from "@/lib/portfolio";
+import ContactForm from "../components/ContactForm";
+import { Asset, background, Destination } from "../components/HomeAssets";
+import { portfolio, projects, services, brands, steps, gallery } from "../lib/portfolio";
 const nav = [["درباره من", "#about"], ["نمونه‌کارها", "/projects"], ["تخصص‌های من", "#services"], ["تماس با من", "/contact"]];
 const logo = <Image src="/images/لوگو-01.svg" alt="امید منصوری؛ صفحه اصلی" width={46} height={46} priority />;
 export default function Home() {

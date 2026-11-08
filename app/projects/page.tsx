@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ProjectsHeader, ProjectsFooter } from "@/components/ProjectsChrome";
-import { archiveWorks } from "@/lib/archive-works";
+import { ProjectsHeader, ProjectsFooter } from "../../components/ProjectsChrome";
+import { archiveWorks } from "../../lib/archive-works";
 
 export const metadata: Metadata = { title: "نمونه‌کارهای من | امید منصوری", description: "مجموعه نمونه‌کارهای طراحی هویت بصری، برندینگ و طراحی گرافیک امید منصوری" };
 const works = archiveWorks;
