@@ -16,7 +16,7 @@ export const projects = [
   ["rono", "رونو", "RONO.jpg"],
 ].map(([slug, title, file]) => ({ slug, title, image: `/images/${file}`, href: `/projects/${slug}` }));
 export const services = [
-  { slug: "visual-identity", title: "هویت بصری", image: "/images/IDENTITY.webp", href: "" },
+  { slug: "visual-identity", title: "هویت بصری", image: "/images/IDENTITY.webp", href: "/visual-identity" },
   { slug: "web-design", title: "طراحی وب‌سایت", image: "/images/WEBDESIGN-BANNER.webp", href: "" },
   { slug: "content", title: "تولید محتوا", image: "/images/CC-BANNER.webp", href: "" },
   { slug: "brand-guideline", title: "مشاوره برندینگ", image: "/images/GUIDANCE-BANNER.webp", href: "" },

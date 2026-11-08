@@ -195,3 +195,51 @@
   .contact-channels { min-height: 390px; }
   .contact-channels-content { padding: 30px 20px; }
 }
+
+/* Visual identity page: scoped rules do not affect projects/contact. */
+.visual-identity-page .visual-hero { margin-bottom: 0; }
+.visual-hero-art { position: relative; min-width: 0; width: 100%; aspect-ratio: 1 / 1; }
+.visual-identity-page .visual-hero-art img { object-fit: contain; object-position: center top; transform: none; }
+.visual-details { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 38px; align-items: center; margin-top: 50px; }
+.visual-detail-copy { display: grid; gap: 32px; }
+.visual-detail-copy h2 { color: #263e4a; font-size: clamp(20px,2.2vw,29px); line-height: 1.5; }
+.visual-detail-copy p { margin-top: 12px; font-size: 14px; line-height: 2; }
+.visual-feature-art { position: relative; width: 100%; aspect-ratio: 1232 / 1696; border-radius: 25px; overflow: hidden; }
+.visual-feature-art img { object-fit: cover; }
+.visual-process { margin-top: 65px; }
+.visual-process > h2 { text-align: right; color: #263e4a; margin-bottom: 25px; }
+.visual-process-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 14px; list-style: none; padding: 0; margin: 0; }
+.visual-process-grid li { min-width: 0; min-height: 205px; background: #f2f2f2; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 10px; text-align: center; }
+.visual-step-icon { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: #fff; color: #135ce8; font-size: 36px; font-weight: 700; line-height: 1; }
+.visual-step-number { color: #135ce8; font-size: 12px; margin-top: 12px; }
+.visual-process-grid h3 { font-size: clamp(13px,1.3vw,18px); line-height: 1.55; color: #263e4a; margin-top: 5px; }
+.visual-consult { margin-top: 75px; min-height: 250px; padding: 35px 55px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-radius: 26px; color: white; background: #135ce8 url("/images/CONTACT%20ME%20FORM.webp") center / cover no-repeat; }
+.visual-consult h2 { color: white; font-size: clamp(22px,2.4vw,31px); }
+.visual-consult p { color: white; max-width: 750px; margin: 10px auto 26px; font-size: 13px; line-height: 2; }
+.visual-consult-button { display: flex; align-items: center; justify-content: center; width: min(100%,600px); min-height: 44px; border-radius: 999px; background: white; color: #135ce8; font-weight: 700; transition: transform .2s; }
+.visual-consult-button:hover { transform: translateY(-2px); }
+@media (min-width: 701px) {
+  .visual-identity-page .visual-hero { margin-top: 105px; margin-bottom: 0; }
+  .visual-identity-page .visual-hero-art { margin-top: -12px; }
+  .visual-identity-page .visual-details { margin-top: 35px; }
+}
+@media (max-width: 1000px) {
+  .visual-details { gap: 22px; }
+  .visual-process-grid { gap: 9px; }
+  .visual-process-grid li { padding: 14px 6px; min-height: 175px; }
+}
+@media (max-width: 700px) {
+  .visual-identity-page .visual-hero { margin-top: 32px; }
+  .visual-details { grid-template-columns: 1fr; margin-top: 34px; gap: 25px; }
+  .visual-feature-art { grid-row: 1; max-width: 450px; margin-inline: auto; }
+  .visual-detail-copy { gap: 24px; }
+  .visual-detail-copy p { font-size: 13px; }
+  .visual-process { margin-top: 45px; }
+  .visual-process-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+  .visual-process-grid li { min-height: 165px; }
+  .visual-consult { margin-top: 45px; padding: 30px 20px; min-height: 235px; }
+}
+
+/* Make the full visual identity service banner clickable. */
+.service-card-link { display: block; position: relative; border-radius: 22px; }
+.service-card-link:focus-visible { outline: 3px solid #135ce8; outline-offset: 4px; }
