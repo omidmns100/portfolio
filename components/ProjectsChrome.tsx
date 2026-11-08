@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { background } from "@/components/HomeAssets";
-import { portfolio, services } from "@/lib/portfolio";
+import { background } from "./HomeAssets";
+import { portfolio, services } from "../lib/portfolio";
 
 const nav = [["درباره من", "/#about"], ["نمونه کارها", "/projects"], ["تخصص های من", "/#services"], ["تماس با من", "/contact"]];
 const logo = <Image src="/images/لوگو-01.svg" alt="لوگوی امید منصوری" width={44} height={44} />;
