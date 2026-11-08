@@ -1,0 +1,12 @@
+diff --git a/app/globals.css b/app/globals.css
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -182,7 +182,7 @@
+ .contact-channel-icon { font-size: 23px; line-height: 1; }
+ @media (min-width: 701px) {
+   /* Match the visible statue size, not merely the grid cell size. */
+-  .contact-landing .contact-intro { margin-bottom: -95px; }
++  .contact-landing .contact-intro { margin-top: 145px; margin-bottom: -155px; }
+   .contact-landing .contact-statue { aspect-ratio: 1.30; }
+   .contact-landing .contact-statue img { object-fit: contain; object-position: center top; transform: translateY(-65px) scale(.92); transform-origin: center top; }
+   .contact-landing .contact-panels { margin-top: 12px; }

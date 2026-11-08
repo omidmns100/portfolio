@@ -2,14 +2,14 @@ import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import { Asset, background, Destination } from "@/components/HomeAssets";
 import { portfolio, projects, services, brands, steps, gallery } from "@/lib/portfolio";
-const nav = [["درباره من", "#about"], ["نمونه‌کارها", "/projects"], ["تخصص‌های من", "#services"], ["تماس با من", "#contact"]];
+const nav = [["درباره من", "#about"], ["نمونه‌کارها", "/projects"], ["تخصص‌های من", "#services"], ["تماس با من", "/contact"]];
 const logo = <Image src="/images/لوگو-01.svg" alt="امید منصوری؛ صفحه اصلی" width={46} height={46} priority />;
 export default function Home() {
   return <><a href="#main" className="skip-link">رفتن به محتوای اصلی</a><main id="main" className="home-page">
     <section className="hero" id="home">
       <Asset src={portfolio.images.hero} label="" className="hero-background" sizes="(max-width: 1600px) 100vw, 1600px" preload />
-      <header className="site-header"><a className="header-logo" href="#home">{logo}</a><nav className="glass-nav" aria-label="منوی اصلی">{nav.map(([title, href]) => <a key={href} href={href}>{title}</a>)}</nav><a href="#contact" className="button header-cta">مشاوره رایگان</a></header>
-      <div className="hero-body container"><div className="hero-copy"><h1>ساختن هویت‌هایی که در یاد می‌مانند<br />از صفر تا صد برندینگ</h1><p>{portfolio.intro}</p><div className="hero-actions"><a className="button" href="#projects">نمونه‌کارها</a><a className="button button-white" href="#contact">مشاوره رایگان</a></div></div></div>
+      <header className="site-header"><a className="header-logo" href="#home">{logo}</a><nav className="glass-nav" aria-label="منوی اصلی">{nav.map(([title, href]) => <a key={href} href={href}>{title}</a>)}</nav><a href="/contact" className="button header-cta">مشاوره رایگان</a></header>
+      <div className="hero-body container"><div className="hero-copy"><h1>ساختن هویت‌هایی که در یاد می‌مانند<br />از صفر تا صد برندینگ</h1><p>{portfolio.intro}</p><div className="hero-actions"><a className="button" href="#projects">نمونه‌کارها</a><a className="button button-white" href="/contact">مشاوره رایگان</a></div></div></div>
     </section>
     <section className="about section container" id="about" aria-labelledby="about-title"><div><h2 id="about-title">داستان من :</h2><p>{portfolio.intro}</p><p>برای من هر پروژه فرصتیه برای پیدا کردن یک نگاه تازه؛ از اولین ایده تا آخرین جزئیات، کنارت هستم تا تصویری بسازیم که به برندت تعلق داشته باشه.</p><Destination href={portfolio.pages.about} className="button">بیشتر بخوانید</Destination></div><Asset src={portfolio.images.about} label="بنر دربارهٔ من" className="about-art" /></section>
     <section className="projects section container" id="projects" aria-labelledby="projects-title"><div className="section-heading"><h2 id="projects-title">نمونه‌کارهای من :</h2><p>هر پروژه یک داستان تازه است؛ اینجا بخشی از مسیر طراحی من رو می‌بینی.</p></div><div className="project-grid">{projects.map(p => <Destination key={p.slug} href={p.href} className="project-card" label={`پروژهٔ ${p.title}`}><Asset src={p.image} label={`بنر ${p.title}`} fit="contain" sizes="(max-width: 700px) 44vw, (max-width: 1300px) 42vw, 525px" /></Destination>)}</div><div className="section-action"><Destination href={portfolio.pages.projects} className="button">همهٔ نمونه‌کارها</Destination></div></section>

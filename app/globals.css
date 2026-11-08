@@ -163,3 +163,35 @@
   .portfolio-archive .archive-statue-image { width: 100%; height: auto; min-height: 0; aspect-ratio: 1216 / 753; overflow: visible; }
   .portfolio-archive .archive-statue-image img { object-fit: contain; object-position: center; transform: none; }
 }
+
+/* Contact landing: the same hero geometry as the portfolio archive. */
+.contact-landing .contact-intro { margin-bottom: 0; }
+.contact-landing .contact-statue { border: 0; }
+.contact-panels { display: grid; grid-template-columns: 1.15fr .85fr; gap: 14px; margin-top: 30px; align-items: stretch; }
+.contact-request { min-width: 0; border-radius: 24px; padding: 26px; }
+.contact-request .contact-form h2 { font-size: clamp(20px, 2vw, 27px); }
+.contact-request .form-fields { gap: 10px; }
+.contact-channels { position: relative; isolation: isolate; min-width: 0; min-height: 420px; border-radius: 24px; overflow: hidden; background: #071b3d; color: #fff; }
+.contact-channels-bg { object-fit: cover; object-position: center; z-index: -2; }
+.contact-channels::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #0718327a, #071832b3); z-index: -1; }
+.contact-channels-content { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 24px; padding: 32px 22px; }
+.contact-channels h2 { color: #fff; font-size: clamp(22px, 2.5vw, 32px); text-align: center; }
+.contact-channel-list { display: grid; gap: 14px; width: min(100%, 340px); }
+.contact-channel-glass { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 47px; border-radius: 999px; border: 1px solid #ffffff4d; background: linear-gradient(110deg, #ffffff30, #ffffff12); box-shadow: inset 0 1px 1px #ffffff5c, 0 7px 18px #00000020; backdrop-filter: blur(16px) saturate(145%); -webkit-backdrop-filter: blur(16px) saturate(145%); color: white; font-size: 16px; transition: background .2s, transform .2s; }
+.contact-channel-glass:hover { background: #ffffff40; transform: translateY(-2px); }
+.contact-channel-icon { font-size: 23px; line-height: 1; }
+@media (min-width: 701px) {
+  /* Match the visible statue size, not merely the grid cell size. */
+  .contact-landing .contact-intro { margin-top: 145px; margin-bottom: -155px; }
+  .contact-landing .contact-statue { aspect-ratio: 1.30; }
+  .contact-landing .contact-statue img { object-fit: contain; object-position: center top; transform: translateY(-65px) scale(.92); transform-origin: center top; }
+  .contact-landing .contact-panels { margin-top: 12px; }
+}
+@media (max-width: 700px) {
+  .contact-landing .contact-intro { margin-bottom: 0; }
+  .contact-landing .contact-statue img { object-fit: contain; transform: none; }
+  .contact-panels { grid-template-columns: 1fr; margin-top: 28px; gap: 16px; }
+  .contact-request { padding: 22px 16px; }
+  .contact-channels { min-height: 390px; }
+  .contact-channels-content { padding: 30px 20px; }
+}
