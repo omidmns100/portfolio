@@ -4,7 +4,7 @@ export const portfolio = {
   intro: "من امیدم؛ با طراحی هویت بصری، تولید محتوا و طراحی وب، به برندها کمک می‌کنم داستان خودشون رو تعریف کنن و در ذهن مخاطب ماندگار بشن.",
   images: { hero: "/images/HERO-BANNER.webp", about: "/images/home/about.webp", process: "/images/WORK FLOW copy.webp", contact: "/images/CONTACT ME.webp", form: "/images/CONTACT ME FORM.webp", footer: "/images/FOTTER.webp" },
   // بعد از ساخت صفحات، مسیرها را جایگزین رشتهٔ خالی کنید.
-  pages: { about: "", projects: "", gallery: "" },
+  pages: { about: "", projects: "/projects", gallery: "" },
   socials: { instagram: "", telegram: "", linkedin: "", email: "" },
 };
 // Keep the original filenames, including spaces and uppercase letters.
@@ -14,7 +14,7 @@ export const projects = [
   ["dena", "دنا", "DENA.jpg"], ["barbad", "باربد", "BARBOD.jpg"],
   ["kodiak", "کودیاک", "KODIAK.jpg"], ["apilux", "آجیلوکس", "AJILUX.jpg"],
   ["rono", "رونو", "RONO.jpg"],
-].map(([slug, title, file]) => ({ slug, title, image: `/images/${file}`, href: "" }));
+].map(([slug, title, file]) => ({ slug, title, image: `/images/${file}`, href: `/projects/${slug}` }));
 export const services = [
   { slug: "visual-identity", title: "هویت بصری", image: "/images/IDENTITY.webp", href: "" },
   { slug: "web-design", title: "طراحی وب‌سایت", image: "/images/WEBDESIGN-BANNER.webp", href: "" },
