@@ -1,0 +1,136 @@
+diff --git a/app/contact/page.tsx b/app/contact/page.tsx
+index 95552ef..2e6982c 100644
+--- a/app/contact/page.tsx
++++ b/app/contact/page.tsx
+@@ -1,3 +1,4 @@
++import InnerPageHero from "../../components/InnerPageHero";
+ import type { Metadata } from "next";
+ import Image from "next/image";
+ import ContactForm from "../../components/ContactForm";
+@@ -22,15 +23,7 @@ export default function ContactPage() {
+     <main className="home-page portfolio-archive contact-landing" id="main">
+       <a className="skip-link" href="#contact-methods">رفتن به راه‌های تماس</a>
+       <ProjectsHeader />
+-      <section className="archive-intro container contact-intro" aria-labelledby="contact-page-title">
+-        <div className="archive-copy">
+-          <h1 id="contact-page-title">تماس با من :</h1>
+-          <p>{portfolio.intro}</p>
+-        </div>
+-        <div className="archive-statue archive-statue-image contact-statue">
+-          <Image src="/CM-B/CM-B-HERO.webp" alt="مجسمه کلاسیک با تلفن آبی، بنر تماس با من" fill priority sizes="(max-width: 700px) 100vw, 50vw" />
+-        </div>
+-      </section>
++      <InnerPageHero title="تماس با من :" titleId="contact-page-title" description={portfolio.intro} imageSrc="/GALLERY/heros/CM-HERO.webp" imageAlt="بنر تماس با من" />
+       <section className="contact-panels container" id="contact-methods" aria-label="فرم و راه‌های تماس">
+         <div className="contact-request form-panel" style={background(portfolio.images.form)}>
+           <ContactForm />
+diff --git a/app/globals.css b/app/globals.css
+index 0022725..013e542 100644
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -282,3 +282,37 @@
+   .visual-identity-page .visual-hero-art { margin-top: 0; aspect-ratio: 1 / 1; }
+   .visual-identity-page .visual-hero-art img { transform: none; }
+ }
++
++/* Unified inner-page hero: a normal image in document flow, never transformed. */
++.portfolio-archive .inner-page-hero {
++  display: grid;
++  grid-template-columns: repeat(2, minmax(0, 1fr));
++  gap: 14px;
++  align-items: start;
++  min-height: 0;
++  margin-top: 105px;
++  margin-bottom: 0;
++}
++.portfolio-archive .inner-page-hero-copy { min-width: 0; padding: 0; text-align: right; }
++.portfolio-archive .inner-page-hero-copy h1 { font-size: clamp(27px, 3.4vw, 43px); color: #263e4a; line-height: 1.5; }
++.portfolio-archive .inner-page-hero-copy p { font-size: 14px; line-height: 2; max-width: 550px; margin-top: 16px; }
++.portfolio-archive .inner-page-hero-banner { min-width: 0; width: 100%; }
++.portfolio-archive .inner-page-hero-banner img {
++  display: block;
++  width: 100%;
++  height: auto;
++  aspect-ratio: 2456 / 1592;
++  object-fit: contain;
++  transform: none;
++}
++/* Equal distance to the following section, regardless of which page is shown. */
++.portfolio-archive .inner-page-hero + section { margin-top: 40px; }
++@media (max-width: 700px) {
++  .portfolio-archive .inner-page-hero {
++    grid-template-columns: 1fr;
++    gap: 20px;
++    margin-top: 32px;
++  }
++  .portfolio-archive .inner-page-hero-copy p { font-size: 13px; }
++  .portfolio-archive .inner-page-hero + section { margin-top: 32px; }
++}
+diff --git a/app/projects/page.tsx b/app/projects/page.tsx
+index 64a1ff9..6a6849a 100644
+--- a/app/projects/page.tsx
++++ b/app/projects/page.tsx
+@@ -1,3 +1,4 @@
++import InnerPageHero from "../../components/InnerPageHero";
+ import type { Metadata } from "next";
+ import Link from "next/link";
+ import Image from "next/image";
+@@ -7,5 +8,5 @@ import { archiveWorks } from "../../lib/archive-works";
+ export const metadata: Metadata = { title: "نمونه‌کارهای من | امید منصوری", description: "مجموعه نمونه‌کارهای طراحی هویت بصری، برندینگ و طراحی گرافیک امید منصوری" };
+ const works = archiveWorks;
+ export default function ProjectsPage() {
+-  return <main className="home-page portfolio-archive" id="main"><a href="#works" className="skip-link">رفتن به نمونه‌کارها</a><ProjectsHeader /><section className="archive-intro container" aria-labelledby="archive-title"><div className="archive-copy"><h1 id="archive-title">نمونه کارهای من :</h1><p>اینجا مجموعه‌ای از پروژه‌های طراحی هویت بصری، برندینگ و کارهای گرافیکی من رو می‌بینی. هر پروژه داستان و هویت مخصوص خودش رو داره؛ برای دیدن جزئیات بیشتر روی تصویرش کلیک کن.</p></div><div className="archive-statue archive-statue-image"><Image src="/WS-B/WS-B-HERO%20copy.webp" alt="بنر هنری صفحه نمونه‌کارها" fill priority sizes="(max-width: 700px) 100vw, 50vw" /></div></section><section className="archive-gallery container" id="works" aria-label="گالری نمونه‌کارها"><div className="archive-grid">{works.map((work) => <Link key={work.slug} href={work.href} className="archive-card" aria-label={`مشاهده نمونه‌کار ${work.title}`}><Image src={work.image} alt={`نمونه‌کار ${work.title}`} fill sizes="(max-width: 700px) 100vw, (max-width: 1200px) 46vw, 580px" quality={85} /></Link>)}</div></section><ProjectsFooter /></main>;
++  return <main className="home-page portfolio-archive" id="main"><a href="#works" className="skip-link">رفتن به نمونه‌کارها</a><ProjectsHeader /><InnerPageHero title="نمونه کارهای من :" titleId="archive-title" description="اینجا مجموعه‌ای از پروژه‌های طراحی هویت بصری، برندینگ و کارهای گرافیکی من رو می‌بینی. هر پروژه داستان و هویت مخصوص خودش رو داره؛ برای دیدن جزئیات بیشتر روی تصویرش کلیک کن." imageSrc="/GALLERY/heros/WS-HERO.webp" imageAlt="بنر هنری صفحه نمونه‌کارها" /><section className="archive-gallery container" id="works" aria-label="گالری نمونه‌کارها"><div className="archive-grid">{works.map((work) => <Link key={work.slug} href={work.href} className="archive-card" aria-label={`مشاهده نمونه‌کار ${work.title}`}><Image src={work.image} alt={`نمونه‌کار ${work.title}`} fill sizes="(max-width: 700px) 100vw, (max-width: 1200px) 46vw, 580px" quality={85} /></Link>)}</div></section><ProjectsFooter /></main>;
+ }
+diff --git a/app/visual-identity/page.tsx b/app/visual-identity/page.tsx
+index 7a12910..332baa0 100644
+--- a/app/visual-identity/page.tsx
++++ b/app/visual-identity/page.tsx
+@@ -1,3 +1,4 @@
++import InnerPageHero from "../../components/InnerPageHero";
+ import type { Metadata } from "next";
+ import Image from "next/image";
+ import Link from "next/link";
+@@ -20,10 +21,7 @@ export default function VisualIdentityPage() {
+   return <main className="home-page portfolio-archive visual-identity-page" id="main">
+     <a href="#visual-details" className="skip-link">رفتن به توضیحات هویت بصری</a>
+     <ProjectsHeader />
+-    <section className="archive-intro container visual-hero" aria-labelledby="visual-title">
+-      <div className="archive-copy"><h1 id="visual-title">طراحی هویت بصری</h1><p>هویت بصری فقط یک لوگو نیست؛ مجموعه‌ای هماهنگ از رنگ‌ها، تایپوگرافی، نشانه‌ها و عناصر گرافیکی است که شخصیت برند شما را شکل می‌دهد و باعث می‌شود مخاطب آن را به خاطر بسپارد.</p></div>
+-      <div className="visual-hero-art"><Image src="/GALLERY/VI-HERO.png" alt="مجسمه هنری با هدفون و عینک آبی در حال طراحی" fill priority sizes="(max-width: 700px) 100vw, 50vw" /></div>
+-    </section>
++    <InnerPageHero title="طراحی هویت بصری" titleId="visual-title" description="هویت بصری فقط یک لوگو نیست؛ مجموعه‌ای هماهنگ از رنگ‌ها، تایپوگرافی، نشانه‌ها و عناصر گرافیکی است که شخصیت برند شما را شکل می‌دهد و باعث می‌شود مخاطب آن را به خاطر بسپارد." imageSrc="/GALLERY/heros/VI-HERO.webp" imageAlt="بنر طراحی هویت بصری" />
+     <section className="visual-details container" id="visual-details" aria-label="آشنایی با طراحی هویت بصری">
+       <div className="visual-detail-copy">{topics.map(topic => <article key={topic.title}><h2>{topic.title}</h2><p>{topic.body}</p></article>)}</div>
+       <div className="visual-feature-art"><Image src="/GALLERY/VI-E-BANNER.webp" alt="پوستر آبی هویت بصری با مجسمه و نماد برندهای مختلف" fill sizes="(max-width: 700px) 100vw, 50vw" /></div>
+diff --git a/components/InnerPageHero.tsx b/components/InnerPageHero.tsx
+new file mode 100644
+index 0000000..a4228bb
+--- /dev/null
++++ b/components/InnerPageHero.tsx
+@@ -0,0 +1,25 @@
++import Image from "next/image";
++import type { ReactNode } from "react";
++
++type InnerPageHeroProps = {
++  title: string;
++  titleId: string;
++  description: ReactNode;
++  imageSrc: string;
++  imageAlt: string;
++};
++
++/** Shared banner layout for interior landing pages. Image files have identical dimensions. */
++export default function InnerPageHero({ title, titleId, description, imageSrc, imageAlt }: InnerPageHeroProps) {
++  return (
++    <section className="inner-page-hero container" aria-labelledby={titleId}>
++      <div className="inner-page-hero-copy">
++        <h1 id={titleId}>{title}</h1>
++        <p>{description}</p>
++      </div>
++      <div className="inner-page-hero-banner">
++        <Image src={imageSrc} alt={imageAlt} width={2456} height={1592} priority sizes="(max-width: 700px) 100vw, 50vw" />
++      </div>
++    </section>
++  );
++}

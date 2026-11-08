@@ -1,3 +1,4 @@
+import InnerPageHero from "../../components/InnerPageHero";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,10 +21,7 @@ export default function VisualIdentityPage() {
   return <main className="home-page portfolio-archive visual-identity-page" id="main">
     <a href="#visual-details" className="skip-link">رفتن به توضیحات هویت بصری</a>
     <ProjectsHeader />
-    <section className="archive-intro container visual-hero" aria-labelledby="visual-title">
-      <div className="archive-copy"><h1 id="visual-title">طراحی هویت بصری</h1><p>هویت بصری فقط یک لوگو نیست؛ مجموعه‌ای هماهنگ از رنگ‌ها، تایپوگرافی، نشانه‌ها و عناصر گرافیکی است که شخصیت برند شما را شکل می‌دهد و باعث می‌شود مخاطب آن را به خاطر بسپارد.</p></div>
-      <div className="visual-hero-art"><Image src="/GALLERY/VI-HERO.png" alt="مجسمه هنری با هدفون و عینک آبی در حال طراحی" fill priority sizes="(max-width: 700px) 100vw, 50vw" /></div>
-    </section>
+    <InnerPageHero title="طراحی هویت بصری" titleId="visual-title" description="هویت بصری فقط یک لوگو نیست؛ مجموعه‌ای هماهنگ از رنگ‌ها، تایپوگرافی، نشانه‌ها و عناصر گرافیکی است که شخصیت برند شما را شکل می‌دهد و باعث می‌شود مخاطب آن را به خاطر بسپارد." imageSrc="/GALLERY/heros/VI-HERO.webp" imageAlt="بنر طراحی هویت بصری" />
     <section className="visual-details container" id="visual-details" aria-label="آشنایی با طراحی هویت بصری">
       <div className="visual-detail-copy">{topics.map(topic => <article key={topic.title}><h2>{topic.title}</h2><p>{topic.body}</p></article>)}</div>
       <div className="visual-feature-art"><Image src="/GALLERY/VI-E-BANNER.webp" alt="پوستر آبی هویت بصری با مجسمه و نماد برندهای مختلف" fill sizes="(max-width: 700px) 100vw, 50vw" /></div>

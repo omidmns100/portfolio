@@ -1,3 +1,4 @@
+import InnerPageHero from "../../components/InnerPageHero";
 import type { Metadata } from "next";
 import Image from "next/image";
 import ContactForm from "../../components/ContactForm";
@@ -22,15 +23,7 @@ export default function ContactPage() {
     <main className="home-page portfolio-archive contact-landing" id="main">
       <a className="skip-link" href="#contact-methods">رفتن به راه‌های تماس</a>
       <ProjectsHeader />
-      <section className="archive-intro container contact-intro" aria-labelledby="contact-page-title">
-        <div className="archive-copy">
-          <h1 id="contact-page-title">تماس با من :</h1>
-          <p>{portfolio.intro}</p>
-        </div>
-        <div className="archive-statue archive-statue-image contact-statue">
-          <Image src="/CM-B/CM-B-HERO.webp" alt="مجسمه کلاسیک با تلفن آبی، بنر تماس با من" fill priority sizes="(max-width: 700px) 100vw, 50vw" />
-        </div>
-      </section>
+      <InnerPageHero title="تماس با من :" titleId="contact-page-title" description={portfolio.intro} imageSrc="/GALLERY/heros/CM-HERO.webp" imageAlt="بنر تماس با من" />
       <section className="contact-panels container" id="contact-methods" aria-label="فرم و راه‌های تماس">
         <div className="contact-request form-panel" style={background(portfolio.images.form)}>
           <ContactForm />
