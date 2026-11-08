@@ -3,8 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ProjectsHeader, ProjectsFooter } from "@/components/ProjectsChrome";
-import { projects, gallery } from "@/lib/portfolio";
-const works = [...projects, ...gallery.slice(0, 2).map((item, i) => ({ slug: `gallery-${i + 1}`, title: item.title, image: item.image, href: `/projects/gallery-${i + 1}` }))];
+import { archiveWorks } from "@/lib/archive-works";
+const works = archiveWorks;
 export function generateStaticParams() { return works.map(({ slug }) => ({ slug })); }
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const work = works.find(item => item.slug === slug); return { title: work ? `${work.title} | امید منصوری` : "نمونه‌کار پیدا نشد" }; }
 export default async function ProjectDetail({ params }: { params: Promise<{ slug: string }> }) {
