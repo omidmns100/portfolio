@@ -1,0 +1,56 @@
+diff --git a/app/page.tsx b/app/page.tsx
+--- a/app/page.tsx
++++ b/app/page.tsx
+@@ -15 +15 @@
+-    <section className="services section container" id="services" aria-labelledby="services-title"><div className="section-heading"><h2 id="services-title">شما به چه خدماتی نیاز دارید؟</h2><p>از شکل‌گیری هویت برند تا حضور در دنیای دیجیتال، همراهت هستم.</p></div><div className="services-grid">{services.map(s => <article key={s.slug} className="service-card">{s.slug === "visual-identity" ? <Destination href="/visual-identity" className="service-card-link" label="مشاهده صفحه هویت بصری"><Asset src={s.image} label={`بنر ${s.title}`} fit="cover" sizes="(max-width: 700px) 44vw, (max-width: 1300px) 23vw, 290px" /><span className="button button-white service-cta">بیشتر بدانید</span></Destination> : <><Asset src={s.image} label={`بنر ${s.title}`} fit="cover" sizes="(max-width: 700px) 44vw, (max-width: 1300px) 23vw, 290px" /><Destination href={s.href} className="button button-white service-cta" label={s.title}>بیشتر بدانید</Destination></>}</article>)}</div></section>
++    <section className="services section container" id="services" aria-labelledby="services-title"><div className="section-heading"><h2 id="services-title">شما به چه خدماتی نیاز دارید؟</h2><p>از شکل‌گیری هویت برند تا حضور در دنیای دیجیتال، همراهت هستم.</p></div><div className="services-grid">{services.map(s => <article key={s.slug} className="service-card">{(s.slug === "visual-identity" || s.slug === "content") ? <Destination href={s.href} className="service-card-link" label={`مشاهده صفحه ${s.title}`}><Asset src={s.image} label={`بنر ${s.title}`} fit="cover" sizes="(max-width: 700px) 44vw, (max-width: 1300px) 23vw, 290px" /><span className="button button-white service-cta">بیشتر بدانید</span></Destination> : <><Asset src={s.image} label={`بنر ${s.title}`} fit="cover" sizes="(max-width: 700px) 44vw, (max-width: 1300px) 23vw, 290px" /><Destination href={s.href} className="button button-white service-cta" label={s.title}>بیشتر بدانید</Destination></>}</article>)}</div></section>
+diff --git a/lib/portfolio.ts b/lib/portfolio.ts
+--- a/lib/portfolio.ts
++++ b/lib/portfolio.ts
+@@ -20 +20 @@
+-  { slug: "content", title: "تولید محتوا", image: "/images/CC-BANNER.webp", href: "" },
++  { slug: "content", title: "تولید محتوا", image: "/images/CC-BANNER.webp", href: "/content-creation" },
+diff --git a/app/content-creation/page.tsx b/app/content-creation/page.tsx
+new file mode 100644
+--- /dev/null
++++ b/app/content-creation/page.tsx
+@@ -0,0 +1,39 @@
++import InnerPageHero from "../../components/InnerPageHero";
++import type { Metadata } from "next";
++import Image from "next/image";
++import Link from "next/link";
++import { ProjectsHeader, ProjectsFooter } from "../../components/ProjectsChrome";
++
++export const metadata: Metadata = {
++  title: "تولید محتوا | امید منصوری",
++  description: "خدمات تولید محتوا و طراحی محتوای بصری برای برندها",
++};
++
++const topics = [
++  { title: "تولید محتوا چیه؟", body: "تولید محتوا یعنی ساخت پیام‌های تصویری و نوشتاری هماهنگ با هویت برند برای ارتباط بهتر با مخاطبان." },
++  { title: "چرا تولید محتوا مهمه؟", body: "محتوای منظم و هدفمند کمک می‌کند برند شما در ذهن مخاطب باقی بماند و در کانال‌های ارتباطی مختلف یکپارچه دیده شود." },
++  { title: "من برای شما چه کاری انجام می‌دهم؟", body: "از شناخت برند و برنامه‌ریزی محتوا شروع می‌کنیم و بعد ایده‌پردازی، طراحی و آماده‌سازی خروجی‌ها را پیش می‌بریم." },
++];
++
++const stages = [
++  { number: "مرحله ۱", title: "شناخت برند و\nمخاطبان", icon: "?" },
++  { number: "مرحله ۲", title: "برنامه‌ریزی و\nاستراتژی محتوا", icon: "⌕" },
++  { number: "مرحله ۳", title: "ایده‌پردازی و\nطراحی کانسپت", icon: "♧" },
++  { number: "مرحله ۴", title: "تولید و تکمیل\nمحتوا", icon: "✒" },
++  { number: "مرحله ۵", title: "بازبینی و\nتحویل نهایی", icon: "⚑" },
++];
++
++export default function ContentCreationPage() {
++  return <main className="home-page portfolio-archive visual-identity-page" id="main">
++    <a href="#content-details" className="skip-link">رفتن به توضیحات تولید محتوا</a>
++    <ProjectsHeader />
++    <InnerPageHero title="تولید محتوا" titleId="content-title" description="تولید محتوای بصری هماهنگ با هویت برند برای حضور مؤثرتر در رسانه‌ها و ارتباط با مخاطبان." imageSrc="/GALLERY/heros/CC-HERO.webp" imageAlt="بنر تولید محتوا" />
++    <section className="visual-details container" id="content-details" aria-label="آشنایی با تولید محتوا">
++      <div className="visual-detail-copy">{topics.map(topic => <article key={topic.title}><h2>{topic.title}</h2><p>{topic.body}</p></article>)}</div>
++      <div className="visual-feature-art"><Image src="/GALLERY/CC-E-BANNER.webp" alt="بنر توضیحات تولید محتوا" fill sizes="(max-width: 700px) 100vw, 50vw" /></div>
++    </section>
++    <section className="visual-process container" aria-labelledby="content-process-title"><h2 id="content-process-title">مراحل تولید محتوا</h2><ol className="visual-process-grid">{stages.map(stage => <li key={stage.number}><span className="visual-step-icon" aria-hidden="true">{stage.icon}</span><span className="visual-step-number">{stage.number}</span><h3>{stage.title}</h3></li>)}</ol></section>
++    <section className="visual-consult container" aria-labelledby="content-consult-title"><h2 id="content-consult-title">برای محتوای برندتان آماده‌اید؟</h2><p>برای شروع همکاری و بررسی نیازهای محتوایی برندتان با هم صحبت کنیم.</p><Link href="/contact" className="visual-consult-button">ثبت درخواست مشاوره</Link></section>
++    <ProjectsFooter />
++  </main>;
++}
