@@ -1,0 +1,12 @@
+diff --git a/app/globals.css b/app/globals.css
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -153,7 +153,7 @@
+ /* Portfolio artwork: use the full updated hero image without zoom/cropping. */
+ @media (min-width: 701px) {
+   /* Match the two columns to the gallery below and align both hero tops. */
+-  .portfolio-archive .archive-intro { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; min-height: 0; align-items: start; margin-top: 42px; }
++  .portfolio-archive .archive-intro { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; min-height: 0; align-items: start; margin-top: 105px; margin-bottom: -155px; }
+   .portfolio-archive .archive-copy { align-self: start; padding-top: 0; }
+   .portfolio-archive .archive-statue-image { width: 100%; height: auto; min-height: 0; aspect-ratio: 1.30; overflow: visible; align-self: start; }
+   .portfolio-archive .archive-statue-image img { object-fit: contain; object-position: center top; transform: translateY(-145px) scale(1.23); transform-origin: center top; }

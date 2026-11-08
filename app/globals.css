@@ -150,13 +150,16 @@
 .archive-statue-image img{object-fit:contain;object-position:center bottom}
 @media(max-width:700px){.archive-statue-image{min-height:225px}}
 
-/* Larger portfolio hero artwork, aligned to the supplied desktop reference. */
+/* Portfolio artwork: use the full updated hero image without zoom/cropping. */
 @media (min-width: 701px) {
-  .portfolio-archive .archive-intro { min-height: 470px; align-items: center; }
-  .portfolio-archive .archive-statue-image { height: 450px; min-height: 450px; overflow: hidden; }
-  .portfolio-archive .archive-statue-image img { transform: scale(1.6); transform-origin: center bottom; object-fit: contain; }
+  /* Match the two columns to the gallery below and align both hero tops. */
+  .portfolio-archive .archive-intro { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; min-height: 0; align-items: start; margin-top: 105px; margin-bottom: -155px; }
+  .portfolio-archive .archive-copy { align-self: start; padding-top: 0; }
+  .portfolio-archive .archive-statue-image { width: 100%; height: auto; min-height: 0; aspect-ratio: 1.30; overflow: visible; align-self: start; }
+  .portfolio-archive .archive-statue-image img { object-fit: contain; object-position: center top; transform: translateY(-145px) scale(1.23); transform-origin: center top; }
+  .portfolio-archive .archive-gallery { margin-top: 12px; }
 }
 @media (max-width: 700px) {
-  .portfolio-archive .archive-statue-image { height: 350px; min-height: 350px; overflow: hidden; }
-  .portfolio-archive .archive-statue-image img { transform: scale(1.35); transform-origin: center bottom; object-fit: contain; }
+  .portfolio-archive .archive-statue-image { width: 100%; height: auto; min-height: 0; aspect-ratio: 1216 / 753; overflow: visible; }
+  .portfolio-archive .archive-statue-image img { object-fit: contain; object-position: center; transform: none; }
 }
