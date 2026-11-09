@@ -31,7 +31,7 @@ export default function ContentCreationPage() {
     <InnerPageHero title="تولید محتوا" titleId="content-title" description="تولید محتوای بصری هماهنگ با هویت برند برای حضور مؤثرتر در رسانه‌ها و ارتباط با مخاطبان." imageSrc="/GALLERY/heros/CC-HERO.webp" imageAlt="بنر تولید محتوا" />
     <section className="visual-details container" id="content-details" aria-label="آشنایی با تولید محتوا">
       <div className="visual-detail-copy">{topics.map(topic => <article key={topic.title}><h2>{topic.title}</h2><p>{topic.body}</p></article>)}</div>
-      <div className="visual-feature-art"><Image src="/GALLERY/CC-E-BANNER.webp" alt="بنر توضیحات تولید محتوا" fill sizes="(max-width: 700px) 100vw, 50vw" /></div>
+      <div className="visual-feature-art"><Image src="/GALLERY/CC-E-BANNER.png" alt="بنر توضیحات تولید محتوا" fill sizes="(max-width: 700px) 100vw, 50vw" /></div>
     </section>
     <section className="visual-process container" aria-labelledby="content-process-title"><h2 id="content-process-title">مراحل تولید محتوا</h2><ol className="visual-process-grid">{stages.map(stage => <li key={stage.number}><span className="visual-step-icon" aria-hidden="true">{stage.icon}</span><span className="visual-step-number">{stage.number}</span><h3>{stage.title}</h3></li>)}</ol></section>
     <section className="visual-consult container" aria-labelledby="content-consult-title"><h2 id="content-consult-title">برای محتوای برندتان آماده‌اید؟</h2><p>برای شروع همکاری و بررسی نیازهای محتوایی برندتان با هم صحبت کنیم.</p><Link href="/contact" className="visual-consult-button">ثبت درخواست مشاوره</Link></section>
