@@ -1,0 +1,13 @@
+diff --git a/app/web-design/page.tsx b/app/web-design/page.tsx
+index 507cb93..f85a9ff 100644
+--- a/app/web-design/page.tsx
++++ b/app/web-design/page.tsx
+@@ -24,7 +24,7 @@ export default function WebDesignPage() {
+     <InnerPageHero title="طراحی وب‌سایت" titleId="web-title" description="وب‌سایت فقط مجموعه‌ای از صفحه‌ها نیست؛ فضایی برای معرفی حرفه‌ای برند و ایجاد ارتباط ساده و مؤثر با مخاطبان است." imageSrc="/GALLERY/heros/WB-HERO.webp" imageAlt="بنر طراحی وب‌سایت" />
+     <section className="visual-details container" id="web-details" aria-label="آشنایی با طراحی وب‌سایت">
+       <div className="visual-detail-copy">{topics.map(topic => <article key={topic.title}><h2>{topic.title}</h2><p>{topic.body}</p></article>)}</div>
+-      <div className="visual-feature-art"><Image src="/GALLERY/WB-EBANNER.png" alt="بنر توضیحات طراحی وب‌سایت" fill sizes="(max-width: 700px) 100vw, 50vw" /></div>
++      <div className="visual-feature-art"><Image src="/GALLERY/WB-E-BANNER.png" alt="بنر توضیحات طراحی وب‌سایت" fill sizes="(max-width: 700px) 100vw, 50vw" /></div>
+     </section>
+     <section className="visual-process container" aria-labelledby="web-process-title"><h2 id="web-process-title">مراحل طراحی وب‌سایت</h2><ol className="visual-process-grid">{stages.map(stage => <li key={stage.number}><span className="visual-step-icon" aria-hidden="true">{stage.icon}</span><span className="visual-step-number">{stage.number}</span><h3>{stage.title}</h3></li>)}</ol></section>
+     <section className="visual-consult container" aria-labelledby="web-consult-title"><h2 id="web-consult-title">برای ساخت وب‌سایت آماده‌اید؟</h2><p>برای طراحی یک وب‌سایت هماهنگ با برندتان، درباره نیازها و ایده‌هایتان با هم صحبت کنیم.</p><Link href="/contact" className="visual-consult-button">ثبت درخواست مشاوره</Link></section>
